@@ -18,19 +18,7 @@ struct NODE {
     std::mutex n_lock;
 
     explicit NODE(DataType value) : value(value) , next(nullptr), marked(false){};
-    void LOCK();
-    void UNLOCK();
 };
-
-template<class DataType>
-void NODE<DataType>::UNLOCK() {
-    n_lock.unlock();
-}
-
-template<class DataType>
-void NODE<DataType>::LOCK() {
-    n_lock.lock();
-}
 
 template <class DataType>
 class LINKED_LIST {
